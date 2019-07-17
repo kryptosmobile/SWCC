@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "com.kryptosmobile.SWCC" version   = "1.0.0">
+        id = "com.kryptosmobile.SWCC" version   = "2.0.1">
         <name>mySCCMobile</name>
         <description>SWCC mobile App</description>
         <author href="http://kryptosmobile.com" email="info@kryptosmobile.com">Kryptos Mobile Team</author>
