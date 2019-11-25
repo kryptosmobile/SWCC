@@ -1,10 +1,10 @@
 {
-  "version": 411,
+  "version": 417,
   "tenantid": "SWCC",
   "mobappid": 110,
   "appName": "mySWCC",
   "appDisplayName": "SCCMobile",
-  "homeScreenTemplate": "",
+  "homeScreenTemplate": "<script>\r\n  MyCampusApp.rootScope.statusBarColor = \"#191919\";\r\n  StatusBar.backgroundColorByHexString(MyCampusApp.rootScope.statusBarColor);\r\n  StatusBar.overlaysWebView(false);\r\n\r\n  MyCampusApp.rootScope.animatepage = function(currentstyle) {\r\n    $(\".app-body\").addClass(currentstyle);\r\n  }\r\n  /*var hideInterval = setInterval(function() {\r\n    var animatecss = $(\"#animatecss\");\r\n    if (!animatecss || animatecss.length <= 0) {\r\n      $.ajax({\r\n        url: \"https://raw.githubusercontent.com/daneden/animate.css/master/animate.css\",\r\n        dataType: \"text\",\r\n        success: function(data) {\r\n          $(\"head\").append(\"<style id='animatecss'>\" + data + \"<\/style>\");\r\n          clearInterval(hideInterval);\r\n        }\r\n      });\r\n    }\r\n  }, 2000);*/\r\n  if (!MyCampusApp.rootScope.cangelistadded) {\r\n    MyCampusApp.rootScope.$on(\"$routeChangeStart\", function(event, next, current) {\r\n      $(\".app-body\").attr(\"class\", \"app-body animated \");\r\n    });\r\n    MyCampusApp.rootScope.$on(\"$routeChangeSuccess\", function(event, next, current) {\r\n      currentstyle = \"bounceInRight\";\r\n      if (next.loadedTemplateUrl == \"partials/home.html\" && current.loadedTemplateUrl != \"partials/home.html\") {\r\n        currentstyle = \"bounceInLeft\";\r\n      } else if (current.loadedTemplateUrl != \"partials/home.html\") {\r\n        if (next.params.appid == current.params.appid && next.params.appid == next.params.pageid) {\r\n          currentstyle = \"bounceInLeft\";\r\n        }\r\n        if (MyCampusApp.rootScope.ppage) {\r\n          if (MyCampusApp.rootScope.ppage.appid == next.params.appid && MyCampusApp.rootScope.ppage.pageid == next.params.pageid) {\r\n            currentstyle = \"bounceInLeft\";\r\n          }\r\n        }\r\n      }\r\n      $(\".app-body\").addClass(currentstyle);\r\n      $(\".app-body\").addClass(\"animated\");\r\n      MyCampusApp.rootScope.cpage = next.params;\r\n      MyCampusApp.rootScope.ppage = current.params;\r\n    });\r\n    MyCampusApp.rootScope.cangelistadded = true;\r\n  }\r\n<\/script>",
   "middlewareServerUrl": "https://kryptosmw.kryptosmobile.com/webadapter2/services/data/SWCC/colleague",
   "feedbackEmail": "webmaster@southwesterncc.edu",
   "backgroundurl": "SWCC/background.png",
